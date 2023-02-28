@@ -1,0 +1,32 @@
+{
+	"name": "@cc-cli/core",
+	"version": "1.0.0",
+	"description": "> TODO: description",
+	"author": "CQY <coolfish@xinyue.io>",
+	"homepage": "",
+	"license": "ISC",
+	"bin": {
+		"cc-cli": "./bin/index.js"
+	},
+	"main": "lib/index.js",
+	"directories": {
+		"lib": "lib",
+		"test": "__tests__"
+	},
+	"files": [
+		"lib"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"test": "node ./__tests__/@cc-cli/core.test.js"
+	},
+	"devDependencies": {
+		"@cc-cli/utils": "file:../../utils/utils"
+	},
+	"dependencies": {
+		"import-local": "^3.1.0",
+		"npmlog": "^7.0.1"
+	}
+}
