@@ -1,0 +1,34 @@
+{
+  "name": "@cc-cli-dev/get-npm-info",
+  "version": "1.0.1",
+  "description": "get npm info",
+  "author": "CQY <coolfish@xinyue.io>",
+  "homepage": "https://github.com/coolpi21/cc-cli#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coolpi21/cc-cli.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@cc-cli/get-npm-info.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/coolpi21/cc-cli/issues"
+  },
+  "dependencies": {
+    "axios": "^1.3.4",
+    "semver": "^7.3.8",
+    "url-join": "^4.0.1"
+  }
+}

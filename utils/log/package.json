@@ -1,0 +1,35 @@
+{
+  "name": "@cc-cli-dev/log",
+  "version": "1.0.1",
+  "description": "cc-cli log",
+  "keywords": [
+    "log"
+  ],
+  "author": "CQY <coolfish@xinyue.io>",
+  "homepage": "https://github.com/coolpi21/cc-cli#readme",
+  "license": "ISC",
+  "main": "lib/log.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coolpi21/cc-cli.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@cc-cli/log.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/coolpi21/cc-cli/issues"
+  },
+  "devDependencies": {
+    "npmlog": "^7.0.1"
+  }
+}

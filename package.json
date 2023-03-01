@@ -11,7 +11,10 @@
   "license": "ISC",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "core/*",
+    "commands/*",
+    "models/*",
+    "utils/*"
   ],
   "devDependencies": {
     "eslint": "^8.0.1",

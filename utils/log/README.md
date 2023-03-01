@@ -1,11 +1,11 @@
-# `@cc-cli/utils`
+# `@cc-cli/log`
 
 > TODO: description
 
 ## Usage
 
 ```
-const utils = require('@cc-cli/utils');
+const log = require('@cc-cli/log');
 
 // TODO: DEMONSTRATE API
 ```
