@@ -23,8 +23,8 @@
     "test": "node ./__tests__/@cc-cli/core.test.js"
   },
   "dependencies": {
-    "@cc-cli/get-npm-info": "file:../../utils/get-npm-info",
-    "@cc-cli/log": "file:../../utils/log",
+    "@cc-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
+    "@cc-cli-dev/log": "file:../../utils/log",
     "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "import-local": "^3.1.0",

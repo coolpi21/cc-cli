@@ -38,6 +38,7 @@ async function getNpmVersions(pkgName, registry) {
 async function getLatestPkgVersion(basePkgVersion, pkgName, registry) {
   const versions = await getNpmVersions(pkgName);
   const gtCurVersions = getSemverPkgVersion(basePkgVersion, versions);
+
   if (gtCurVersions && gtCurVersions.length > 0) {
     return gtCurVersions[0];
   } else {

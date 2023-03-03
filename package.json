@@ -10,12 +10,6 @@
   "author": "",
   "license": "ISC",
   "private": true,
-  "workspaces": [
-    "core/*",
-    "commands/*",
-    "models/*",
-    "utils/*"
-  ],
   "devDependencies": {
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.6.0",

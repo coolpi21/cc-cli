@@ -3,7 +3,7 @@ module.exports = core;
 const path = require('path');
 const semver = require('semver');
 const colors = require('colors/safe');
-const log = require('@cc-cli/log');
+const log = require('@cc-cli-dev/log');
 const userHome = require('user-home');
 const pathExists = require('path-exists');
 
@@ -96,7 +96,7 @@ function checkArgs(args) {
 async function checkUserPkgVersion() {
   const { version: pkgVersion, name: pkgName } = pkgFile;
 
-  const { getLatestPkgVersion } = require('@cc-cli/get-npm-info');
+  const { getLatestPkgVersion } = require('@cc-cli-dev/get-npm-info');
   const latestVersion = await getLatestPkgVersion(pkgVersion, pkgName);
 
   if (latestVersion && semver.gt(latestVersion, pkgVersion)) {
