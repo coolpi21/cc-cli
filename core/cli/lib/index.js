@@ -2,11 +2,12 @@ module.exports = core;
 
 const semver = require('semver');
 const colors = require('colors/safe');
-const log = require('@cc-cli-dev/log');
 const path = require('path');
 const userHome = require('user-home');
 const pathExists = require('path-exists');
 const commander = require('commander');
+const log = require('@cc-cli-dev/log');
+const init = require('@cc-cli-dev/init');
 
 const pkgFile = require('../package.json');
 const { LOWER_NODE_VERSION, DEFAULT_CLI_HOME } = require('./constant');
@@ -35,6 +36,11 @@ function registerCommand() {
     .usage('<command> [options]')
     .version(pkgFile.name)
     .option('-d, --debug', '是否开启调试模式', false);
+
+  program
+    .command('init [projectName]')
+    .option('-f, --force', '是否强制初始化项目')
+    .action(init);
 
   program.on('option:debug', () => {
     checkArgs(program.opts());

@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@cc-cli-dev/get-npm-info": "workspace:^1.0.1",
+    "@cc-cli-dev/init": "workspace:^1.0.0",
     "@cc-cli-dev/log": "workspace:^1.0.1",
     "colors": "^1.4.0",
     "commander": "^10.0.0",

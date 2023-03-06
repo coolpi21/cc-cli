@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@cc-cli-dev/get-npm-info': workspace:^1.0.1
+  '@cc-cli-dev/init': workspace:^1.0.0
   '@cc-cli-dev/log': workspace:^1.0.1
   colors: ^1.4.0
   commander: ^10.0.0
@@ -16,6 +17,7 @@ specifiers:
 
 dependencies:
   '@cc-cli-dev/get-npm-info': link:../../utils/get-npm-info
+  '@cc-cli-dev/init': link:../../commands/init
   '@cc-cli-dev/log': link:../../utils/log
   colors: 1.4.0
   commander: 10.0.0
