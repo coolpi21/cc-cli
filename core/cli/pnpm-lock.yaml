@@ -1,9 +1,10 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@cc-cli-dev/get-npm-info': file:../../utils/get-npm-info
-  '@cc-cli-dev/log': file:../../utils/log
+  '@cc-cli-dev/get-npm-info': workspace:^1.0.1
+  '@cc-cli-dev/log': workspace:^1.0.1
   colors: ^1.4.0
+  commander: ^10.0.0
   dotenv: ^16.0.3
   import-local: ^3.1.0
   minimist: ^1.2.8
@@ -14,9 +15,10 @@ specifiers:
   user-home: ^3.0.0
 
 dependencies:
-  '@cc-cli-dev/get-npm-info': file:../../utils/get-npm-info
-  '@cc-cli-dev/log': file:../../utils/log
+  '@cc-cli-dev/get-npm-info': link:../../utils/get-npm-info
+  '@cc-cli-dev/log': link:../../utils/log
   colors: 1.4.0
+  commander: 10.0.0
   dotenv: 16.0.3
   import-local: 3.1.0
   minimist: 1.2.8
@@ -62,20 +64,6 @@ packages:
       readable-stream: 4.3.0
     dev: false
 
-  /asynckit/0.4.0:
-    resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
-    dev: false
-
-  /axios/1.3.4:
-    resolution: {integrity: sha512-toYm+Bsyl6VC5wSkfkbbNB6ROv7KY93PEBBL6xyDczaIHasAiv4wPqQ/c4RjoQzipxRD2W5g21cOqQulZ7rHwQ==}
-    dependencies:
-      follow-redirects: 1.15.2
-      form-data: 4.0.0
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
@@ -108,11 +96,9 @@ packages:
     engines: {node: '>=0.1.90'}
     dev: false
 
-  /combined-stream/1.0.8:
-    resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
-    engines: {node: '>= 0.8'}
-    dependencies:
-      delayed-stream: 1.0.0
+  /commander/10.0.0:
+    resolution: {integrity: sha512-zS5PnTI22FIRM6ylNW8G4Ap0IEOyk62fhLSD0+uHRT9McRCLGpkVNvao4bjimpK/GShynyQkFFxHhwMcETmduA==}
+    engines: {node: '>=14'}
     dev: false
 
   /console-control-strings/1.1.0:
@@ -122,11 +108,6 @@ packages:
   /default-uid/1.0.0:
     resolution: {integrity: sha512-KqOPKqX9VLrCfdKK/zMll+xb9kZOP4QyguB6jyN4pKaPoedk1bMFIfyTCFhVdrHb3GU7aJvKjd8myKxFRRDwCg==}
     engines: {node: '>=0.10.0'}
-    dev: false
-
-  /delayed-stream/1.0.0:
-    resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
-    engines: {node: '>=0.4.0'}
     dev: false
 
   /delegates/1.0.0:
@@ -171,25 +152,6 @@ packages:
     dependencies:
       locate-path: 5.0.0
       path-exists: 4.0.0
-    dev: false
-
-  /follow-redirects/1.15.2:
-    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dev: false
-
-  /form-data/4.0.0:
-    resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
-    engines: {node: '>= 6'}
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      mime-types: 2.1.35
     dev: false
 
   /gauge/5.0.0:
@@ -259,18 +221,6 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /mime-db/1.52.0:
-    resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
-    engines: {node: '>= 0.6'}
-    dev: false
-
-  /mime-types/2.1.35:
-    resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
-    engines: {node: '>= 0.6'}
-    dependencies:
-      mime-db: 1.52.0
-    dev: false
-
   /minimist/1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: false
@@ -324,10 +274,6 @@ packages:
   /process/0.11.10:
     resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
     engines: {node: '>= 0.6.0'}
-    dev: false
-
-  /proxy-from-env/1.1.0:
-    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
     dev: false
 
   /readable-stream/4.3.0:
@@ -413,10 +359,6 @@ packages:
     engines: {node: '>=0.8.0'}
     dev: false
 
-  /url-join/4.0.1:
-    resolution: {integrity: sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==}
-    dev: false
-
   /user-home/3.0.0:
     resolution: {integrity: sha512-kHp9sWxeB+EVTcVytDrGLVKgVVN1LoLiIZTwCDcvYNjIu9q7tUOXZoTv0mXjmvFvUju4J9v+RkFGHdTMx8ncmQ==}
     engines: {node: '>=0.10.0'}
@@ -433,22 +375,4 @@ packages:
 
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-    dev: false
-
-  file:../../utils/get-npm-info:
-    resolution: {directory: ../../utils/get-npm-info, type: directory}
-    name: '@cc-cli-dev/get-npm-info'
-    version: 1.0.1
-    dependencies:
-      axios: 1.3.4
-      semver: 7.3.8
-      url-join: 4.0.1
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  file:../../utils/log:
-    resolution: {directory: ../../utils/log, type: directory}
-    name: '@cc-cli-dev/log'
-    version: 1.0.1
     dev: false

@@ -1,14 +1,17 @@
 module.exports = core;
 
-const path = require('path');
 const semver = require('semver');
 const colors = require('colors/safe');
 const log = require('@cc-cli-dev/log');
+const path = require('path');
 const userHome = require('user-home');
 const pathExists = require('path-exists');
+const commander = require('commander');
 
 const pkgFile = require('../package.json');
 const { LOWER_NODE_VERSION, DEFAULT_CLI_HOME } = require('./constant');
+
+const program = new commander.Command();
 
 async function core() {
   try {
@@ -16,11 +19,41 @@ async function core() {
     checkNodeVersion();
     checkRoot();
     checkUserHome();
-    checkInputArgs();
+    // checkInputArgs();
     checkEnv();
     await checkUserPkgVersion();
+    registerCommand();
   } catch (e) {
     log.error(e.message);
+  }
+}
+
+// 注册命令
+function registerCommand() {
+  program
+    .name(Object.keys(pkgFile.bin)[0])
+    .usage('<command> [options]')
+    .version(pkgFile.name)
+    .option('-d, --debug', '是否开启调试模式', false);
+
+  program.on('option:debug', () => {
+    checkArgs(program.opts());
+    log.verbose('test');
+  });
+
+  program.on('command:*', (obj) => {
+    const availableCommand = program.commands.map((cmd) => cmd.name());
+    log.error('error', `未知的命令 <${colors.red(obj[0])}>`);
+    if (availableCommand.length > 0) {
+      console.log('可用的命令', availableCommand.join(','));
+    }
+  });
+
+  program.parse(process.argv);
+
+  if (program.args && program.args.length < 1) {
+    program.outputHelp();
+    console.log();
   }
 }
 

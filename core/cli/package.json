@@ -20,12 +20,13 @@
     "access": "public"
   },
   "scripts": {
-    "test": "node ./__tests__/@cc-cli/core.test.js"
+    "build": "webpack"
   },
   "dependencies": {
-    "@cc-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
-    "@cc-cli-dev/log": "file:../../utils/log",
+    "@cc-cli-dev/get-npm-info": "workspace:^1.0.1",
+    "@cc-cli-dev/log": "workspace:^1.0.1",
     "colors": "^1.4.0",
+    "commander": "^10.0.0",
     "dotenv": "^16.0.3",
     "import-local": "^3.1.0",
     "minimist": "^1.2.8",

@@ -20,7 +20,8 @@
     "husky": "^8.0.3",
     "lerna": "^6.5.1",
     "lint-staged": "^13.1.2",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "webpack-cli": "^5.0.1"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
