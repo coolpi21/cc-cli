@@ -7,7 +7,8 @@ const userHome = require('user-home');
 const pathExists = require('path-exists');
 const commander = require('commander');
 const log = require('@cc-cli-dev/log');
-const init = require('@cc-cli-dev/init');
+// const init = require('@cc-cli-dev/init');
+const exec = require('@cc-cli-dev/exec');
 
 const pkgFile = require('../package.json');
 const { LOWER_NODE_VERSION, DEFAULT_CLI_HOME } = require('./constant');
@@ -16,13 +17,7 @@ const program = new commander.Command();
 
 async function core() {
   try {
-    checkPkgVersion(pkgFile);
-    checkNodeVersion();
-    checkRoot();
-    checkUserHome();
-    // checkInputArgs();
-    checkEnv();
-    await checkUserPkgVersion();
+    await prepare();
     registerCommand();
   } catch (e) {
     log.error(e.message);
@@ -35,16 +30,21 @@ function registerCommand() {
     .name(Object.keys(pkgFile.bin)[0])
     .usage('<command> [options]')
     .version(pkgFile.name)
-    .option('-d, --debug', '是否开启调试模式', false);
+    .option('-d, --debug', '是否开启调试模式', false)
+    .option('-tp, --targetPath <targetPath>', '是否开启本地目录调试模式', '');
 
   program
     .command('init [projectName]')
     .option('-f, --force', '是否强制初始化项目')
-    .action(init);
+    .action(exec);
 
   program.on('option:debug', () => {
     checkArgs(program.opts());
     log.verbose('test');
+  });
+
+  program.on('option:targetPath', () => {
+    process.env.CLI_TARGET_PATH = program.opts().targetPath;
   });
 
   program.on('command:*', (obj) => {
@@ -63,6 +63,16 @@ function registerCommand() {
   }
 }
 
+// 准备工作
+async function prepare() {
+  checkPkgVersion(pkgFile);
+  checkNodeVersion();
+  checkRoot();
+  checkUserHome();
+  checkEnv();
+  await checkUserPkgVersion();
+}
+
 // 检查环境
 async function checkEnv() {
   const envPath = path.resolve(userHome, '.env');
@@ -72,7 +82,6 @@ async function checkEnv() {
     });
 
     createDefaultConfig();
-    // log.verbose('环境变量', envConfig, process.env.CLI_HOME);
   }
 }
 
@@ -80,11 +89,11 @@ function createDefaultConfig() {
   const cliConfig = new Map();
   cliConfig.set('home', 'userHome');
 
-  process.env.CLI_HOME
+  process.env.CLI_HOME_PATH
     ? cliConfig.set('cliHome', path.join(userHome, process.env.CLI_HOME))
     : cliConfig.set('cliHome', path.join(userHome, DEFAULT_CLI_HOME));
 
-  process.env.CLI_HOME = cliConfig.get('cliHome');
+  process.env.CLI_HOME_PATH = cliConfig.get('cliHome');
 }
 
 // 检查 Node 版本
@@ -117,13 +126,6 @@ async function checkUserHome() {
   if (!userHome || !(await pathExists(userHome))) {
     throw new Error(colors.red('当前登录用户主目录不存在！'));
   }
-}
-
-// 检查用户输入参数
-function checkInputArgs() {
-  const minimist = require('minimist');
-  const args = minimist(process.argv.slice(2));
-  checkArgs(args);
 }
 
 function checkArgs(args) {

@@ -1,0 +1,11 @@
+{
+  "name": "@cc-cli-dev/utils",
+  "version": "1.0.0",
+  "description": "cc-cli-dev utils",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

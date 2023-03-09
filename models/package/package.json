@@ -1,0 +1,21 @@
+{
+  "name": "@cc-cli-dev/package",
+  "version": "1.0.0",
+  "description": "cc-cli-dev package",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cc-cli-dev/format-path": "workspace:^1.0.0",
+    "@cc-cli-dev/get-npm-info": "workspace:^1.0.1",
+    "@cc-cli-dev/log": "workspace:^1.0.1",
+    "@cc-cli-dev/utils": "workspace:^1.0.0",
+    "fs-extra": "9.0.1",
+    "npminstall": "4.10.0",
+    "path-exists": "4.0.0",
+    "pkg-dir": "5.0.0"
+  }
+}

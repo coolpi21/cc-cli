@@ -3,7 +3,13 @@ const semver = require('semver');
 const urlJoin = require('url-join');
 const axios = require('axios');
 
-module.exports = { getNpmInfo, getNpmVersions, getLatestPkgVersion };
+module.exports = {
+  getNpmInfo,
+  getNpmVersions,
+  getLatestPkgVersion,
+  getDefaultRegistry,
+  getNpmLatestVersion,
+};
 
 // 获取npm info
 function getNpmInfo(pkgName, registry) {
@@ -51,8 +57,19 @@ function getSemverPkgVersion(basePkgVersion, versions) {
     .filter((version) => semver.satisfies(version, `>${basePkgVersion}`))
     .sort((a, b) => semver.gt(b, a));
 }
+
 function getDefaultRegistry(isOriginal = false) {
   return isOriginal
     ? 'https://registry.npmjs.org/'
     : 'https://registry.npmmirror.com/';
+}
+
+async function getNpmLatestVersion(pkgName, registry) {
+  const versions = await getNpmVersions(pkgName, registry);
+
+  if (versions) {
+    return versions.sort((a, b) => (semver.gt(b, a) ? 1 : -1))[0];
+  }
+
+  return null;
 }

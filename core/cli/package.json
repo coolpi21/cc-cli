@@ -23,6 +23,7 @@
     "build": "webpack"
   },
   "dependencies": {
+    "@cc-cli-dev/exec": "workspace:^1.0.0",
     "@cc-cli-dev/get-npm-info": "workspace:^1.0.1",
     "@cc-cli-dev/init": "workspace:^1.0.0",
     "@cc-cli-dev/log": "workspace:^1.0.1",
